@@ -1,0 +1,121 @@
+\documentclass[../report.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Gameplay}
+\subsubsection{Game Progression}
+Càng về sau thì số lượng và tốc độ sinh các quái
+vật sẽ càng lớn và nhanh. Game có 4 loại quái vật khác
+nhau với các cách gây sát thương khác nhau:
+\begin{itemize}
+\item Voi: Bắn đạn theo các thẳng hoặc bắn theo nhiều hướng. 
+\item Zoombear: Tấn công bằng tiếp xúc với nhân vật chính. 
+\item Nhện: Cũng tấn công bằng tiếp xúc.
+\item Bọ cạp: Tấn công bằng cả tiếp xúc và đạn. 
+\end{itemize}
+
+\subsubsection{Mission/Challenge Structure}
+Chơi trong thời gian lâu nhất và tiêu diệt được
+nhiều quái vật nhất, đạt được số điểm lớn nhất.
+Người chơi đạt được điều đó bằng việc di chuyển
+khéo léo tránh các quái vật và vũ khí của chúng.
+Khi các quái vật chết có thể tạo ra các vật phẩm
+hồi máu hoặc tăng điểm. Người chơi có thể
+thu lượm các vật phẩm đó. 
+
+\subsubsection{Puzzle Structure}
+\begin{itemize}
+\item Voi: Xuất hiện 15s một lần. Thời gian giữa hai lần
+    tấn công là 3s. Mỗi lần tấn công sẽ bắn ra 36 viên đạn.
+    Thời gian giữa các viên đạn là 0.1 s. Damage của mỗi
+    viên đạn là 5 hit point. Các viên đạn khi va chạm
+    vào vật cản hoặc ra khỏi bản đồ sẽ bị hủy.
+\item Zoombear: Sinh ra với chu kì 3s. Mỗi lần
+    tấn công làm mất 5 HP, chu kì là 0.5s. 
+\item Nhện: Sinh ra với chu kì 25s. Mỗi lần tấn công
+    làm mất 10HP, chu kì tấn công là 0.5s. 
+\item Bọ cạp: Sinh ra với chu kì 35s. Mỗi lần tấn
+    công làm mất 10HP, chu kì tấn công là 0.5s.
+\item Mỗi quái vật đều có 100 HP. 
+\item Nhân vật chính có 100 HP. 
+\end{itemize}
+
+\subsubsection{Objectives}
+Di chuyển khéo léo, tránh các quái vật và vũ khí
+của chúng, tiêu diệt nhiều quái vật nhất có thể
+đồng thời thu lượm điểm số và máu từ các
+vật phẩm sinh ra khi bị tiêu diệt. 
+
+\subsubsection{Play Flow}
+Khi bắt đầu vào game. Nhân vật chính sẽ đứng
+chính giữa bản đồ. Game kết thúc khi nhân vật chính hết máu.
+
+\subsection{Mechanics}
+\subsubsection{Physics}
+\begin{itemize}
+\item Nhân vật chính và các quái
+    vật đều có thể di chuyển tự do. 
+\item Đạn từ các quái vật tương tác
+    với các thực thể dựa vào cơ chế collision. 
+\item Đạn từ nhân vật chính va đập với các quái
+    vật dựa vào cơ chế Ray Casting. 
+\end{itemize}
+
+\subsubsection{Movement in the game}
+\begin{itemize}
+\item Nhân vật chính có thể di chuyển lên xuống, sang trái,
+    sang phải, quay đầu nhưng không thể di chuyển xuyên
+    qua các vật thể như đá, tháp và không
+    được phép di chuyển ra ngoài bản đồ. 
+\item Đạn của nhân vật chính khi được bắn ra sẽ di chuyển
+    theo đường thẳng và ngay lập tức gặp vật cả
+    sẽ gây hiệu ứng va chạm có thể là khói hoặc vụ nổ. 
+\item Các quái vật cũng có thể di chuyển tự do giống
+    như nhân vật chính và luôn có xu hướng tiến lại áp sát player.
+\item Voi bắn đạn theo hai cách được chọn ngẫu nhiên:
+    Bắn đạn thẳng về phía player hoặc Bắn vòng tròn xung quay. 
+\item Người chơi sử dụng chuột trái để bắn đạn và 
+    di chuyển chuột để thay đổi hướng. 
+\end{itemize}
+
+\subsubsection{Actions}
+\begin{itemize}
+\item Khi bắt đầu vào game, player sẽ được đặt ở trung tâm của bản đồ
+
+\item Người chơi có thể sử dụng bàn phím và chuột để di chuyển nhân vật và bắn đạn: sang trái (mũi tên sang trái, A), sang phải (mũi tên sang phỉa, D), tiến lên (mũi tên lên trên, W), lùi (mũi tên đi xuống, S) , bắn đạn (Ctrl, click chuột trái).
+\item Enemy chết, sẽ có 1 quẩn lửa lớn bao quanh và có thể hiện ra vật phẩm
+\item Khi nhân vật chết, màn hình thông báo Game Over sẽ hiện ra 
+\end{itemize}
+
+\subsubsection{Combat}
+\begin{itemize}
+\item Khi có va chạm giữa nhân vật và đạn kẻ thù hay bẫy gai (nhân vạt sẽ mất máu), game sẽ xảy ra hiệu ứng mất máu của nhân vật (hình ảnh + âm thanh)
+\item Ngoài ra, khi có va chạm giữa đạn nhân vật và vật cản hay kẻ thù , cũng xẩy ra hiệu ứng va chạm (hình ảnh + âm thanh). 
+\item Đạn của enemy va chạm sẽ có hiệu ứng bốc khói và nổ ( cả hình ảnh + âm thanh)
+\item Tùy vào lượng sát thương của các đối tượng va chạm (thông số sát thương được thiết lập sẳn)
+    mà các nhân vật sẽ bị nhận sát thương dẫn đến mất máu.
+    Nếu máu của nhân vật bé hơn hoặc bằng 0 thì nhân vật sẽ chết
+
+\end{itemize}
+
+\subsubsection{Economy}
+Tiêu diệt mỗi quái vật sẽ được 10 điểm thưởng.
+Thu lượm một vật phẩm hồi máu sẽ giúp tăng 25 HP. 
+
+\subsection{Game Options}
+\begin{itemize}
+\item Không có
+\end{itemize}
+
+\subsection{Replaying and Saving}
+\begin{itemize}
+\item Không có chức năng Replaying. 
+\item Không có chức năng Saving
+\end{itemize}
+
+\subsection{Cheats and Easter Eggs}
+\begin{itemize}
+\item Không có
+\end{itemize}
+
+\end{document}

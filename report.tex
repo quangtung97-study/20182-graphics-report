@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage[utf8]{vietnam}
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{subfiles}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\usepackage{float}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\usepackage[nottoc,notlof,notlot]{tocbibind} 
+
+% Link color setup
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black,
+	citecolor = blue
+}
+
+% Change format of page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Trò chơi: Survival Battle}
+\fancyfoot[L]{Tạ Bảo Thắng - Tạ Quang Tùng - KSTN-CNTT-K60}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% format
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\normalsize\sffamily\bfseries}{\thesubsubsection}{1em}{}
+
+% tab command
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+
+\subfile{sections/title-page.tex}
+
+\pagenumbering{gobble}
+\tableofcontents 
+\newpage
+
+\pagenumbering{arabic}
+\newpage
+\setcounter{page}{1}
+
+\section{Game Overview}
+\subfile{sections/game-overview.tex}
+
+\section{Gameplay and Mechanics}
+\subfile{sections/gameplay.tex}
+
+\section{Story, Setting and Character}
+\subfile{sections/story.tex}
+
+\subfile{sections/levels.tex}
+
+% \bibliography{report}{}
+% \bibliographystyle{plain}
+
+\end{document}
